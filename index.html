@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisieux Infant School Kabojja</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====================================================
+       COLOR PALETTE
+       Bright Blue  : #1565C0
+       Sky Blue     : #1E88E5
+       Pale Blue    : #E3F2FD
+       Cream        : #FFF8E7
+       Cream Dark   : #F5EDCF
+       Black        : #0D0D0D
+       White        : #FFFFFF
+    ==================================================== */
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Nunito', Arial, sans-serif;
+      color: #0D0D0D;
+      background: #FFF8E7;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .top-bar {
+      background: #1565C0;
+      color: #FFF8E7;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 7%;
+      letter-spacing: 0.5px;
+    }
+
+    .top-bar span { margin: 0 12px; }
+
+    /* ── HEADER ── */
+    header {
+      background: #0D0D0D;
+      padding: 14px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-wrap img {
+      height: 48px;
+      width: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #1565C0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-name {
+      color: #FFF8E7;
+      font-family: 'Fredoka One', cursive;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-tagline {
+      color: #1E88E5;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: #FFF8E7;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover { background: #1565C0; color: #FFF8E7; }
+
+    .nav-cta {
+      background: #1565C0;
+      color: #FFF8E7 !important;
+      border-radius: 6px;
+      padding: 8px 18px !important;
+    }
+
+    .nav-cta:hover { background: #1E88E5 !important; }
+
+    /* ── HERO SLIDER ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 92vh;
+      min-height: 520px;
+      max-height: 820px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active { opacity: 1; }
+
+    .slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(13,13,13,0.72) 45%, rgba(13,13,13,0.15));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 7%;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #1565C0;
+      color: #FFF8E7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 5px 14px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(38px, 5.5vw, 68px);
+      line-height: 1.1;
+      color: #FFF8E7;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span { color: #1E88E5; }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 19px);
+      color: #F5EDCF;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: #1565C0;
+      color: #FFF8E7;
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: background 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: #1E88E5; transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #FFF8E7;
+      padding: 13px 28px;
+      border-radius: 8px;
+      border: 2px solid #FFF8E7;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: background 0.2s, color 0.2s, transform 0.1s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: #FFF8E7; color: #0D0D0D; transform: translateY(-2px); }
+
+    /* Slider dots */
+    .slider-dots {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      gap: 10px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,248,231,0.45);
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .dot.active { background: #1565C0; transform: scale(1.35); }
+
+    /* ── STATS STRIP ── */
+    .stats-strip {
+      background: #1565C0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .stat {
+      flex: 1 1 160px;
+      text-align: center;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255,248,231,0.2);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: 'Fredoka One', cursive;
+      font-size: 38px;
+      color: #FFF8E7;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #E3F2FD;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── SECTION SHARED ── */
+    .section { padding: 80px 7%; }
+
+    .section-tag {
+      display: inline-block;
+      background: #E3F2FD;
+      color: #1565C0;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Fredoka One', cursive;
+      font-size: clamp(28px, 3.5vw, 42px);
+      color: #0D0D0D;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .section-title span { color: #1565C0; }
+
+    .section-sub {
+      font-size: 17px;
+      color: #444;
+      max-width: 620px;
+      line-height: 1.7;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(21,101,192,0.2);
+    }
+
+    .about-img-accent {
+      position: absolute;
+      width: 52%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 16px;
+      bottom: -30px;
+      right: -24px;
+      border: 5px solid #FFF8E7;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    .about-text { padding-left: 10px; }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .pillar {
+      background: #FFFFFF;
+      border-left: 4px solid #1565C0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pillar:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(21,101,192,0.15); }
+
+    .pillar-icon { font-size: 26px; margin-bottom: 6px; }
+
+    .pillar h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: #1565C0;
+      margin-bottom: 4px;
+    }
+
+    .pillar p { font-size: 13px; color: #555; }
+
+    /* ── CLASSES ── */
+    .classes-section {
+      background: #0D0D0D;
+    }
+
+    .classes-section .section-tag {
+      background: rgba(21,101,192,0.3);
+      color: #90CAF9;
+    }
+
+    .classes-section .section-title { color: #FFF8E7; }
+    .classes-section .section-title span { color: #1E88E5; }
+    .classes-section .section-sub { color: #aaa; }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .class-card {
+      background: #1a1a1a;
+      border: 1px solid #222;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .class-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(21,101,192,0.35);
+      border-color: #1565C0;
+    }
+
+    .class-card-top {
+      background: #1565C0;
+      padding: 28px 24px 20px;
+      text-align: center;
+    }
+
+    .class-emoji { font-size: 44px; display: block; margin-bottom: 8px; }
+
+    .class-card-top h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 22px;
+      color: #FFF8E7;
+    }
+
+    .class-age {
+      display: inline-block;
+      background: rgba(255,248,231,0.2);
+      color: #FFF8E7;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-top: 6px;
+    }
+
+    .class-card-body { padding: 20px 24px; }
+
+    .class-card-body p { color: #bbb; font-size: 14px; line-height: 1.65; }
+
+    .class-card-body ul {
+      list-style: none;
+      margin-top: 14px;
+    }
+
+    .class-card-body ul li {
+      color: #ccc;
+      font-size: 13px;
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .class-card-body ul li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #1565C0;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-section { background: #FFF8E7; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    /* Events sub-grid inside gallery section */
+    .events-sub-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .events-sub-grid .gallery-item img {
+      height: 200px;
+      min-height: unset;
+    }
+
+    .event-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(21, 101, 192, 0.88);
+      color: #FFF8E7;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      padding: 8px 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .gallery-item:hover .event-caption {
+      transform: translateY(0);
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 16px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+      min-height: 200px;
+    }
+
+    .gallery-item:first-child img { min-height: 420px; }
+
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(21,101,192,0.0);
+      transition: background 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item:hover .gallery-overlay { background: rgba(21,101,192,0.4); }
+
+    .gallery-overlay-icon {
+      color: #FFF8E7;
+      font-size: 36px;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay-icon { opacity: 1; transform: scale(1); }
+
+    /* ── EVENTS ── */
+    .events-section { background: #F5EDCF; }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .event-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(21,101,192,0.18);
+    }
+
+    .event-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .event-body { padding: 18px 20px 22px; }
+
+    .event-label {
+      display: inline-block;
+      background: #E3F2FD;
+      color: #1565C0;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+
+    .event-body h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0D0D0D;
+      margin-bottom: 6px;
+    }
+
+    .event-body p { font-size: 13px; color: #666; }
+
+    /* ── CONTACT BUTTONS SECTION ── */
+    .contact-buttons-section {
+      background: #FFF8E7;
+    }
+
+    .contact-btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .contact-btn-card {
+      background: #FFFFFF;
+      border: 2px solid #1565C0;
+      border-radius: 20px;
+      padding: 30px 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(21,101,192,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-btn-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(21,101,192,0.2);
+    }
+
+    .contact-btn-number {
+      font-family: 'Fredoka One', cursive;
+      font-size: 22px;
+      color: #0D0D0D;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .contact-btn-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cbtn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .cbtn:hover { transform: translateY(-2px); }
+
+    .cbtn-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+    }
+
+    .cbtn-whatsapp:hover { background: #1ebe5a; }
+
+    .cbtn-call {
+      background: #1565C0;
+      color: #FFF8E7;
+    }
+
+    .cbtn-call:hover { background: #1E88E5; }
+
+    .cbtn-icon {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+    }
+
+    .cbtn-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    @media (max-width: 600px) {
+      .contact-btn-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── WHY US ── */
+    .why-section {
+      background: #1565C0;
+    }
+
+    .why-section .section-tag {
+      background: rgba(255,248,231,0.2);
+      color: #FFF8E7;
+    }
+
+    .why-section .section-title { color: #FFF8E7; }
+    .why-section .section-sub { color: #E3F2FD; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,248,231,0.2);
+      border-radius: 18px;
+      padding: 30px 24px;
+      text-align: center;
+      transition: background 0.25s, transform 0.25s;
+    }
+
+    .why-card:hover {
+      background: rgba(255,255,255,0.18);
+      transform: translateY(-5px);
+    }
+
+    .why-icon { font-size: 42px; margin-bottom: 14px; display: block; }
+
+    .why-card h3 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 20px;
+      color: #FFF8E7;
+      margin-bottom: 8px;
+    }
+
+    .why-card p { font-size: 14px; color: #E3F2FD; line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { background: #FFFFFF; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .testimonial {
+      background: #FFF8E7;
+      border-radius: 18px;
+      padding: 28px;
+      position: relative;
+      border-top: 4px solid #1565C0;
+    }
+
+    .quote-mark {
+      font-family: Georgia, serif;
+      font-size: 64px;
+      color: #1565C0;
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.4;
+    }
+
+    .testimonial p {
+      font-size: 15px;
+      color: #444;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1565C0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fredoka One', cursive;
+      font-size: 18px;
+      color: #FFF8E7;
+      flex-shrink: 0;
+    }
+
+    .author-name { font-weight: 800; font-size: 14px; color: #0D0D0D; }
+    .author-role { font-size: 12px; color: #888; }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: #0D0D0D url('Logo.jpg') center center / cover no-repeat;
+      position: relative;
+      color: #FFF8E7;
+    }
+
+    /* Dark overlay so text stays readable over the logo */
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(13, 13, 13, 0.82);
+      z-index: 0;
+    }
+
+    /* Push all content above the overlay */
+    .contact-section > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-section .section-tag {
+      background: rgba(21,101,192,0.35);
+      color: #90CAF9;
+    }
+
+    .contact-section .section-title { color: #FFF8E7; }
+    .contact-section .section-title span { color: #1E88E5; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 22px; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: #1565C0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: #90CAF9;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .contact-detail p, .contact-detail a {
+      font-size: 16px;
+      color: #FFF8E7;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+
+    .contact-detail a:hover { color: #1E88E5; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #aaa;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #FFF8E7;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: #1565C0; }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-group select option { background: #1a1a1a; }
+
+    .btn-submit {
+      background: #1565C0;
+      color: #FFF8E7;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover { background: #1E88E5; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1565C0;
+      color: #FFF8E7;
+      padding: 50px 7% 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,248,231,0.2);
+    }
+
+    .footer-brand .logo-name {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      color: #E3F2FD;
+      line-height: 1.7;
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #E3F2FD;
+      margin-bottom: 14px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #FFF8E7;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-bottom {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: #E3F2FD;
+      opacity: 0.8;
+    }
+
+    /* ── FLOATING ENROL BUTTON ── */
+    .fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #1565C0;
+      color: #FFF8E7;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(21,101,192,0.5);
+      z-index: 998;
+      transition: background 0.2s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .fab:hover { background: #0D0D0D; transform: scale(1.05); }
+
+    /* ════════════════════════════════════════
+       RESPONSIVE — full rebuild
+       Breakpoints:
+         1024px  tablet landscape
+          860px  tablet portrait
+          600px  large phone
+          420px  small phone
+    ════════════════════════════════════════ */
+
+    /* ── HAMBURGER (hidden on desktop) ── */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 1001;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: #FFF8E7;
+      border-radius: 3px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* ── TABLET LANDSCAPE ── */
+    @media (max-width: 1024px) {
+      .about-grid { gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .footer-grid > .footer-brand { grid-column: span 2; }
+      .classes-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-sub-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* ── TABLET PORTRAIT ── */
+    @media (max-width: 860px) {
+      /* Header */
+      header { padding: 12px 5%; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-img-accent { display: none; }
+      .about-img-main { height: 300px; }
+      .about-text { padding-left: 0; }
+
+      /* Contact grid */
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:first-child img { min-height: 240px; }
+
+      /* Events sub-grid */
+      .events-sub-grid { grid-template-columns: repeat(2, 1fr); }
+      .events-sub-grid .gallery-item img { height: 170px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Contact buttons */
+      .contact-btn-grid { grid-template-columns: 1fr; max-width: 400px; }
+
+      /* Why grid */
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Stats */
+      .stat { flex: 1 1 50%; }
+      .stat:nth-child(2) { border-right: none; }
+    }
+
+    /* ── LARGE PHONE ── */
+    @media (max-width: 600px) {
+      /* Top bar */
+      .top-bar {
+        font-size: 11px;
+        padding: 7px 4%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+      }
+      .top-bar span { margin: 0 6px; }
+
+      /* Header — hamburger layout */
+      header {
+        padding: 12px 5%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+      }
+
+      .nav-toggle { display: flex; }
+
+      nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #0D0D0D;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        z-index: 1000;
+        padding: 20px;
+      }
+
+      nav.open { display: flex; }
+
+      nav a {
+        font-size: 20px;
+        padding: 12px 28px;
+        width: 100%;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      .nav-cta {
+        margin-top: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Hero */
+      .hero { height: 88vh; min-height: 480px; }
+      .hero-content { padding: 0 6%; max-width: 100%; }
+      .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+      .hero-sub { font-size: 15px; }
+      .hero-buttons { flex-direction: column; gap: 10px; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 13px 20px; }
+
+      /* Stats */
+      .stats-strip { flex-direction: row; flex-wrap: wrap; }
+      .stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(255,248,231,0.2); padding: 20px 10px; }
+      .stat-number { font-size: 30px; }
+      .stat-label { font-size: 11px; }
+
+      /* Sections */
+      .section { padding: 50px 5%; }
+
+      /* Section headings */
+      .section-title { font-size: clamp(24px, 7vw, 34px); }
+      .section-sub { font-size: 15px; }
+
+      /* About */
+      .about-pillars { grid-template-columns: 1fr; }
+      .about-img-main { height: 240px; }
+
+      /* Classes */
+      .classes-grid { grid-template-columns: 1fr; }
+
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+      .gallery-item:first-child { grid-column: span 1; grid-row: span 1; }
+      .gallery-item:first-child img { min-height: 220px; }
+      .gallery-item img { min-height: 180px; }
+
+      /* Events sub-grid */
+      .events-sub-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .events-sub-grid .gallery-item img { height: 140px; }
+      .event-caption { font-size: 11px; padding: 6px 8px; }
+
+      /* Why grid */
+      .why-grid { grid-template-columns: 1fr; }
+      .why-card { padding: 22px 18px; }
+
+      /* Contact buttons */
+      .contact-btn-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .contact-btn-card { padding: 22px 18px; }
+      .contact-btn-number { font-size: 18px; }
+      .cbtn { font-size: 14px; padding: 11px 16px; }
+
+      /* Contact form */
+      .contact-grid { gap: 28px; }
+      .btn-submit { width: 100%; text-align: center; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+      footer { padding: 36px 5% 20px; }
+
+      /* FAB */
+      .fab { bottom: 14px; right: 14px; padding: 11px 16px; font-size: 13px; }
+    }
+
+    /* ── SMALL PHONE ── */
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 26px; }
+      .hero-sub { font-size: 14px; }
+      .logo-name { font-size: 16px; }
+      .logo-tagline { font-size: 10px; }
+      .logo-wrap img { height: 38px; width: 38px; }
+      .events-sub-grid { grid-template-columns: 1fr; }
+      .events-sub-grid .gallery-item img { height: 200px; }
+      .stat { flex: 1 1 100%; }
+      .cbtn { width: 100%; justify-content: center; }
+      .contact-btn-row { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="top-bar">
+    <span>📞 +256 787 951 766</span>
+    <span>📍 Kabojja, Nakawuka Road – Wakiso</span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo-wrap" href="#home">
+      <img src="Logo.jpg" alt="Lisieux Infant School Logo">
+      <div class="logo-text">
+        <span class="logo-name">Lisieux Infant School</span>
+        <span class="logo-tagline">Kabojja · To God Be The Glory</span>
+      </div>
+    </a>
+
+    <nav aria-label="Main navigation" id="main-nav">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#classes">Classes</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#contact">Enrol Now</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO SECTION ══ -->
+    <section class="hero" id="home" aria-label="Hero banner">
+
+      <div class="slide active" style="background-image: url('Hero1.jpg')"></div>
+      <div class="slide" style="background-image: url('Hero2.jpg')"></div>
+      <div class="slide" style="background-image: url('Hero3.jpg')"></div>
+      <div class="slide" style="background-image: url('Hero4.jpg')"></div>
+
+      <div class="hero-content">
+        <span class="hero-badge">✨ To God Be The Glory</span>
+        <h1>A <span>Bright Beginning</span><br>for Every Child.</h1>
+        <p class="hero-sub">
+          Welcome to Lisieux Infant School Kabojja — where little minds grow
+          big through love, play and purpose-driven learning.
+        </p>
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#contact">Enrol Your Child</a>
+          <a class="btn-outline" href="#about">Discover More</a>
+        </div>
+      </div>
+
+      <div class="slider-dots" role="tablist" aria-label="Hero slides">
+        <button class="dot active" aria-label="Slide 1"></button>
+        <button class="dot" aria-label="Slide 2"></button>
+        <button class="dot" aria-label="Slide 3"></button>
+        <button class="dot" aria-label="Slide 4"></button>
+      </div>
+
+    </section>
+
+    <!-- ══ STATS STRIP ══ -->
+    <div class="stats-strip" aria-label="School highlights">
+      <div class="stat">
+        <div class="stat-number">7+</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Class Levels</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Dedicated Teachers</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">❤️</div>
+        <div class="stat-label">Faith-Based Values</div>
+      </div>
+    </div>
+
+    <!-- ══ ABOUT SECTION ══ -->
+    <section class="section" id="about">
+      <div class="about-grid">
+
+        <div class="about-images">
+          <img class="about-img-main" src="Hero2.jpg" alt="Children learning at Lisieux">
+          <img class="about-img-accent" src="Gallery1.jpg" alt="School activities">
+        </div>
+
+        <div class="about-text">
+          <span class="section-tag">About Us</span>
+          <h2 class="section-title">Nurturing <span>Hearts & Minds</span><br>Since 2017</h2>
+          <p class="section-sub">
+            Lisieux Infant School Kabojja is a mixed Nursery and Pre-Primary school, 
+            officially opened by its patron Rev. Fr. Kibalama Denis Warren in 2017. 
+            We run from Baby Class to Primary Three, offering quality Early Childhood 
+            Development (ECD) education guided by faith, creativity, and care.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar">
+              <div class="pillar-icon">🏃</div>
+              <h4>Practical Life</h4>
+              <p>Independence through everyday real-world tasks.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🔍</div>
+              <h4>Sensorial Learning</h4>
+              <p>Exploring the world through all five senses.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🔢</div>
+              <h4>Numeracy & Language</h4>
+              <p>Building strong number and communication skills early.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon">🎨</div>
+              <h4>Culture & Art</h4>
+              <p>Imagination and creative expression fostered daily.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ CLASSES SECTION ══ -->
+    <section class="section classes-section" id="classes">
+      <div style="text-align:center; max-width:620px; margin:auto;">
+        <span class="section-tag">Our Classes</span>
+        <h2 class="section-title">Every Stage,<br><span>Every Child</span></h2>
+        <p class="section-sub">
+          From the tiniest toddler to our confident Primary Three pupils — 
+          we have a warm, structured learning environment for every age.
+        </p>
+      </div>
+
+      <div class="classes-grid">
+
+        <div class="class-card">
+          <div class="class-card-top">
+            <span class="class-emoji">👶</span>
+            <h3>Baby Class</h3>
+            <span class="class-age">Ages 2 – 3</span>
+          </div>
+          <div class="class-card-body">
+            <p>A warm and playful introduction to school life with a focus on socialisation and sensory play.</p>
+            <ul>
+              <li>Sensory play & exploration</li>
+              <li>Songs, rhymes & stories</li>
+              <li>Social skills development</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-top">
+            <span class="class-emoji">🌱</span>
+            <h3>Middle Class</h3>
+            <span class="class-age">Ages 3 – 4</span>
+          </div>
+          <div class="class-card-body">
+            <p>Structured play-based learning that introduces foundational literacy and numeracy concepts.</p>
+            <ul>
+              <li>Letter & number recognition</li>
+              <li>Creative arts & crafts</li>
+              <li>Group activities & games</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-top">
+            <span class="class-emoji">⭐</span>
+            <h3>Top Class</h3>
+            <span class="class-age">Ages 4 – 5</span>
+          </div>
+          <div class="class-card-body">
+            <p>Building confidence and independence as children prepare for primary school transition.</p>
+            <ul>
+              <li>Reading & writing readiness</li>
+              <li>Basic mathematics</li>
+              <li>Science exploration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="class-card">
+          <div class="class-card-top">
+            <span class="class-emoji">📚</span>
+            <h3>Primary One – Three</h3>
+            <span class="class-age">Ages 6 – 9</span>
+          </div>
+          <div class="class-card-body">
+            <p>A solid early primary education grounded in the national curriculum with a nurturing approach.</p>
+            <ul>
+              <li>English, Maths & Science</li>
+              <li>Social Studies & RE</li>
+              <li>Physical Education</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ GALLERY SECTION ══ -->
+    <section class="section gallery-section" id="gallery">
+      <div style="text-align:center; max-width:580px; margin:auto;">
+        <span class="section-tag">Gallery</span>
+        <h2 class="section-title">Life at <span>Lisieux</span></h2>
+        <p class="section-sub">A glimpse into the joy, learning and laughter that fills our school every day.</p>
+      </div>
+
+      <div class="gallery-grid" style="margin-top:40px;">
+        <div class="gallery-item">
+          <img src="Gallery1.jpg" alt="Children at school activity">
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Gallery2.jpg" alt="Classroom learning">
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Gallery3.jpg" alt="Outdoor play">
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Gallery4.jpg" alt="Art class">
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="Gallery5.jpg" alt="School event">
+          <div class="gallery-overlay"><span class="gallery-overlay-icon">🔍</span></div>
+        </div>
+      </div>
+
+      <!-- Events sub-grid -->
+      <div style="text-align:center; max-width:580px; margin:60px auto 0;">
+        <span class="section-tag">End of Year Concert</span>
+        <h3 class="section-title" style="font-size:clamp(22px,2.8vw,34px);">Moments We <span>Cherish</span></h3>
+        <p class="section-sub">A peek into our End of Year Concert — a joyful celebration of talent, hard work and togetherness.</p>
+      </div>
+
+      <div class="events-sub-grid">
+        <div class="gallery-item">
+          <img src="Event1.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">�</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event2.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">🎶</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event3.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">�</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event4.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">🎶</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="event5.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">�</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event6.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">�</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event7.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">�</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+        <div class="gallery-item">
+          <img src="Event8.jpg" alt="End of Year Concert">
+          <div class="gallery-overlay">
+            <span class="gallery-overlay-icon">🎶</span>
+          </div>
+          <div class="event-caption">End of Year Concert</div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+    <!-- ══ WHY CHOOSE US ══ -->
+    <section class="section why-section">
+      <div style="text-align:center; max-width:580px; margin:auto;">
+        <span class="section-tag">Why Lisieux</span>
+        <h2 class="section-title">Why Families<br>Choose Us</h2>
+        <p class="section-sub">We offer much more than a curriculum — we offer a community where every child is known, loved and inspired.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">✝️</span>
+          <h3>Faith-Centred</h3>
+          <p>Rooted in Catholic values, we nurture the whole child — spiritually, emotionally and intellectually.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">👩‍🏫</span>
+          <h3>Caring Teachers</h3>
+          <p>Our trained, passionate educators give every child the attention and patience they deserve.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🏫</span>
+          <h3>Safe Environment</h3>
+          <p>A secure, welcoming campus where children feel safe to explore, make mistakes and grow.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🎯</span>
+          <h3>Holistic Learning</h3>
+          <p>Arts, sport, academics and life skills — we develop balanced, confident young learners.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🤝</span>
+          <h3>Parent Partnership</h3>
+          <p>We work hand-in-hand with families to ensure every child thrives at home and at school.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🌟</span>
+          <h3>Proven Results</h3>
+          <p>Our pupils leave us ready — academically, socially and emotionally — for the next big step.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT BUTTONS SECTION ══ -->
+    <section class="section contact-buttons-section">
+      <div style="text-align:center; max-width:620px; margin:0 auto 40px;">
+        <span class="section-tag">Reach Us Instantly</span>
+        <h2 class="section-title">Talk to Us on <span>WhatsApp</span><br>or Give Us a <span>Call</span></h2>
+        <p class="section-sub">Choose how you'd like to get in touch — we're always happy to hear from you.</p>
+      </div>
+
+      <div class="contact-btn-grid">
+
+        <!-- Number 1: +256 706 807 060 -->
+        <div class="contact-btn-card">
+          <div class="contact-btn-number">+256 706 807 060</div>
+          <div class="contact-btn-row">
+            <a class="cbtn cbtn-whatsapp" href="https://wa.me/256706807060" target="_blank" rel="noopener">
+              <span class="cbtn-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.428a.75.75 0 0 0 .915.916l5.65-1.479A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.74 9.74 0 0 1-4.964-1.355l-.355-.213-3.356.878.896-3.267-.232-.376A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+                </svg>
+              </span>
+              WhatsApp
+            </a>
+            <a class="cbtn cbtn-call" href="tel:+256706807060">
+              <span class="cbtn-icon">📞</span>
+              Call Now
+            </a>
+          </div>
+        </div>
+
+        <!-- Number 2: +256 787 951 766 -->
+        <div class="contact-btn-card">
+          <div class="contact-btn-number">+256 787 951 766</div>
+          <div class="contact-btn-row">
+            <a class="cbtn cbtn-whatsapp" href="https://wa.me/256787951766" target="_blank" rel="noopener">
+              <span class="cbtn-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.428a.75.75 0 0 0 .915.916l5.65-1.479A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.74 9.74 0 0 1-4.964-1.355l-.355-.213-3.356.878.896-3.267-.232-.376A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+                </svg>
+              </span>
+              WhatsApp
+            </a>
+            <a class="cbtn cbtn-call" href="tel:+256787951766">
+              <span class="cbtn-icon">📞</span>
+              Call Now
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="section contact-section" id="contact">
+      <div style="text-align:center; max-width:580px; margin:auto;">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">We'd Love to<br><span>Hear From You</span></h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-detail">
+              <h4>Location</h4>
+              <p>Kabojja, off Nakawuka Road<br>Wakiso, Uganda</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-detail">
+              <h4>Phone</h4>
+              <a href="tel:+256787951766">+256 787 951 766</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="contact-detail">
+              <h4>Email</h4>
+              <a href="mailto:lisieuxinfantschool@gmail.com">lisieuxinfantschool@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div class="contact-detail">
+              <h4>School Hours</h4>
+              <p>Mon – Fri: 7:30 AM – 5:00 PM<br>Saturday: 8:00 AM – 1:00 PM</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="handleFormSubmit(event)" novalidate>
+          <div class="form-group">
+            <label for="parent-name">Parent / Guardian Name</label>
+            <input type="text" id="parent-name" name="parent-name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+256 700 000 000" required>
+          </div>
+          <div class="form-group">
+            <label for="child-name">Child's Name</label>
+            <input type="text" id="child-name" name="child-name" placeholder="Child's full name">
+          </div>
+          <div class="form-group">
+            <label for="class-interest">Class of Interest</label>
+            <select id="class-interest" name="class-interest">
+              <option value="">-- Select a class --</option>
+              <option>Baby Class (Age 2–3)</option>
+              <option>Middle Class (Age 3–4)</option>
+              <option>Top Class (Age 4–5)</option>
+              <option>Primary One</option>
+              <option>Primary Two</option>
+              <option>Primary Three</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" name="message" placeholder="Any questions or information you'd like to share…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Enquiry →</button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-name" style="font-family:'Fredoka One',cursive; font-size:22px;">Lisieux Infant School</span>
+        <p>Kabojja, Nakawuka Road – Wakiso, Uganda.<br>
+        Nurturing faith, curiosity and excellence since 2017.<br>
+        <em>"To God Be The Glory"</em></p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#classes">Our Classes</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+256787951766">+256 787 951 766</a>
+        <a href="mailto:lisieuxinfantschool@gmail.com">lisieuxinfantschool@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Lisieux Infant School Kabojja. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- FLOATING ENROL BUTTON -->
+  <a class="fab" href="#contact" aria-label="Enrol now">
+    🎒 Enrol Now
+  </a>
+
+  <script>
+    /* ── HERO AUTO-SLIDER ── */
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.dot');
+    let current  = 0;
+    let timer;
+
+    // Move to a specific slide index (loops infinitely)
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    // Auto-advance every 5 seconds, loops forever
+    function startSlider() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 8000);
+    }
+
+    // Dot click — jump to slide and restart timer
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        startSlider();
+      });
+    });
+
+    // Touch / swipe support
+    const heroEl = document.querySelector('.hero');
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    heroEl.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].clientX;
+      touchStartY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    heroEl.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      // Only register horizontal swipes (more horizontal than vertical)
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+        if (dx < 0) {
+          goTo(current + 1); // swipe left → next
+        } else {
+          goTo(current - 1); // swipe right → previous
+        }
+        startSlider();
+      }
+    }, { passive: true });
+
+    // Start the loop
+    startSlider();
+
+    /* ── CONTACT FORM → mailto ── */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+
+      const parentName  = form.querySelector('#parent-name').value.trim();
+      const phone       = form.querySelector('#phone').value.trim();
+      const childName   = form.querySelector('#child-name').value.trim();
+      const classChoice = form.querySelector('#class-interest').value.trim();
+      const message     = form.querySelector('#message').value.trim();
+
+      // Validate required fields
+      if (!parentName || !phone) {
+        alert('Please fill in your name and phone number before sending.');
+        return;
+      }
+
+      const to      = 'lisieuxinfantschool@gmail.com';
+      const subject = encodeURIComponent('School Enquiry – ' + parentName);
+      const body    = encodeURIComponent(
+        'ENQUIRY FROM LISIEUX INFANT SCHOOL WEBSITE\n' +
+        '==========================================\n\n' +
+        'Parent / Guardian Name : ' + parentName + '\n' +
+        'Phone Number           : ' + phone + '\n' +
+        'Child\'s Name           : ' + (childName  || 'Not provided') + '\n' +
+        'Class of Interest      : ' + (classChoice || 'Not selected') + '\n\n' +
+        'Message:\n' + (message || 'No additional message.') + '\n\n' +
+        '--\nSent via Lisieux Infant School website'
+      );
+
+      // Open the device email app with everything pre-filled
+      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+
+      // Give brief feedback then reset
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = '✅ Email app opened — please press Send!';
+      btn.style.background = '#0D0D0D';
+
+      setTimeout(() => {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+        btn.disabled = false;
+        form.reset();
+      }, 5000);
+    }
+
+    /* ── SCROLL FADE-IN ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity   = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(
+      '.pillar, .class-card, .event-card, .why-card, .testimonial, .gallery-item'
+    ).forEach(el => {
+      el.style.opacity   = '0';
+      el.style.transform = 'translateY(28px)';
+      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+      observer.observe(el);
+    });
+    /* ── HAMBURGER MENU ── */
+    const navToggle = document.getElementById('nav-toggle');
+    const mainNav   = document.getElementById('main-nav');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close menu when a nav link is clicked
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+  </script>
+
+</body>
+</html>
